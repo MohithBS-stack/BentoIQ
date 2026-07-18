@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd bentoiq && npm install && npm run build",
+  "outputDirectory": "bentoiq/.next",
+  "installCommand": "cd bentoiq && npm install",
+  "devCommand": "cd bentoiq && npm run dev",
+  "framework": "nextjs"
+}
