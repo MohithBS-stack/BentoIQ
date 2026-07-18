@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Bauhaus Color System */
+    --bg-base: #f4f4f0; /* Off-white warm paper */
+    --bg-elevated: #ffffff;
+    --text-primary: #111111;
+    --text-secondary: #333333;
+    
+    /* Pure Primary Accents */
+    --bauhaus-red: #da291c;
+    --bauhaus-blue: #0033a0;
+    --bauhaus-yellow: #ffc72c;
+    
+    --accent: var(--bauhaus-blue);
+    --accent-light: rgba(0, 51, 160, 0.1);
+    
+    /* Functional Status - mapped to Bauhaus palette where possible */
+    --emerald: #10b981;
+    --amber: var(--bauhaus-yellow);
+    --rose: var(--bauhaus-red);
+    --cyan: var(--bauhaus-blue);
+
+    /* Thick geometric borders */
+    --border-subtle: #111111;
+    --border-hover: #111111;
+  }
+
+  body {
+    @apply text-[var(--text-primary)];
+    background-color: var(--bg-base);
+    /* Classic geometric sans-serif */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.02em;
+    background-image: radial-gradient(circle, #e0e0e0 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black text-[var(--text-primary)] uppercase tracking-tighter;
+  }
+
+  p, span, div {
+    @apply text-[var(--text-secondary)];
+  }
+}
+
+@layer utilities {
+  /* Bauhaus Geometric Cards */
+  .glass-card {
+    @apply relative overflow-hidden transition-transform duration-200;
+    background-color: var(--bg-elevated);
+    border: 3px solid var(--text-primary);
+    border-radius: 0; /* Strict geometry */
+    box-shadow: 6px 6px 0px var(--text-primary);
+  }
+  
+  .glass-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px var(--text-primary);
+  }
+  
+  /* Bauhaus Edge Accents */
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: var(--bauhaus-red);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  /* Sharp Geometric Buttons */
+  .btn-primary {
+    @apply relative overflow-hidden font-bold transition-all duration-200 uppercase tracking-widest text-xs;
+    background-color: var(--text-primary);
+    color: #ffffff;
+    border: 2px solid var(--text-primary);
+    border-radius: 0;
+    padding: 0.75rem 1.75rem;
+    box-shadow: 4px 4px 0px var(--bauhaus-yellow);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--bauhaus-blue);
+    border-color: var(--bauhaus-blue);
+    box-shadow: 4px 4px 0px var(--bauhaus-red);
+    transform: translate(-2px, -2px);
+    color: #ffffff;
+  }
+  
+  .btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px transparent;
+  }
+
+  .btn-secondary {
+    @apply relative overflow-hidden font-bold transition-all duration-200 uppercase tracking-widest text-xs;
+    background-color: var(--bauhaus-yellow);
+    color: var(--text-primary);
+    border: 2px solid var(--text-primary);
+    border-radius: 0;
+    padding: 0.75rem 1.75rem;
+    box-shadow: 4px 4px 0px var(--text-primary);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--bauhaus-red);
+    color: #ffffff;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--text-primary);
+  }
+
+  /* Accent Button */
+  .btn-accent {
+    @apply relative overflow-hidden font-bold transition-all duration-200 uppercase tracking-widest text-xs;
+    background-color: var(--bauhaus-red);
+    color: #ffffff;
+    border: 2px solid var(--text-primary);
+    border-radius: 0;
+    padding: 0.75rem 1.75rem;
+    box-shadow: 4px 4px 0px var(--text-primary);
+  }
+  
+  .btn-accent:hover {
+    background-color: var(--bauhaus-blue);
+    box-shadow: 6px 6px 0px var(--bauhaus-yellow);
+  }
+
+  /* Solid Geometric Sidebar */
+  .floating-sidebar {
+    background: var(--bg-elevated);
+    border-right: 4px solid var(--text-primary);
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    height: 100vh;
+  }
+
+  /* Solid Geometric Topnav */
+  .floating-topnav {
+    background: var(--bg-elevated);
+    border-bottom: 4px solid var(--text-primary);
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    height: 64px;
+  }
+
+  /* Sharp Search Input */
+  .search-capsule {
+    background-color: var(--bg-elevated);
+    border: 2px solid var(--text-primary);
+    border-radius: 0;
+    transition: all 0.2s ease;
+    box-shadow: 3px 3px 0px var(--text-primary);
+  }
+  .search-capsule:focus-within {
+    background-color: #ffffff;
+    border-color: var(--bauhaus-blue);
+    box-shadow: 4px 4px 0px var(--bauhaus-red);
+    transform: translate(-1px, -1px);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* Background Overrides */
+.premium-bg-wrapper {
+  display: none;
+}
